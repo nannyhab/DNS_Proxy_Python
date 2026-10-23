@@ -39,4 +39,6 @@ print(f"listening on 127.0.0.1:1053, upstream {UPSTREAM}")
 
 while True:
     query, client = server.recvfrom(4096)
+    #query =  raw data stream
+    #client = (senderip, port number)
     threading.Thread(target=handle, args=(query, client)).start()
