@@ -3,7 +3,7 @@ import sys
 import threading
 
 UPSTREAM = sys.argv[1] if len(sys.argv) > 1 else "8.8.8.8"
-TYPES = {1: "A", 2: "NS", 5: "CNAME", 15: "MX", 16: "TXT", 28: "AAAA"}
+TYPES = {1: "A", 2: "NS", 5: "CNAME", 15: "MX", 16: "TXT", 28: "AAAA"} #important for mapping the types, 
 
 
 def get_question(query):
@@ -13,6 +13,7 @@ def get_question(query):
         labels.append(query[i + 1:i + 1 + query[i]].decode())
         i += query[i] + 1
     qtype = int.from_bytes(query[i + 1:i + 3], "big")
+    print(f'for debugging purposes {labels}')
     return ".".join(labels), TYPES.get(qtype, qtype)
 
 
