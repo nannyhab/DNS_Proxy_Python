@@ -48,8 +48,8 @@ Details:
   - Prints each query's time, from receiving it to sending the answer.
 
 Measurements:
-  First query:            ____ ms
-  Queries 2-10 average:   ____ ms
+  First query:            86.8 ms
+  Queries 2-10 average:   19.2 ms
 
 Why: the first query has to open the connection and do the HTTPS handshake.
 The rest reuse that connection and skip it, so they're much faster.
